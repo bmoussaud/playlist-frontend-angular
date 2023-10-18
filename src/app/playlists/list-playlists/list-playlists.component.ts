@@ -17,6 +17,7 @@ export class ListPlaylistsComponent implements OnInit {
   dataSource: Observable<Playlist[]> = of([]);
 
   configuration!: Configuration;
+  playlists!: Playlist[];
 
   couldNotRetrieve: Boolean = false;
 
@@ -31,6 +32,10 @@ export class ListPlaylistsComponent implements OnInit {
         return [];
       })
     );
+    this.playlistService.getPlaylists().subscribe((result) => {
+      this.playlists = result;
+    });
+    
     this.playlistService.getConfiguration().subscribe((result) => {
       this.configuration = result;
     });

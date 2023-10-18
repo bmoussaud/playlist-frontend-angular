@@ -3,42 +3,41 @@
 <div class="container">
   <div class="row">
     <div class="col-8">
-      <table mat-table [dataSource]="dataSource">
-        <ng-container matColumnDef="image">
-          <mat-header-cell *matHeaderCellDef mat-sort-header
-            >Image</mat-header-cell
-          >
-          <mat-cell *matCellDef="let element"
-            ><img style="height: 100px; width: 100px" [src]="element.image"
-          /></mat-cell>
-        </ng-container>
-
-        <mat-text-column name="name" headerText="Name"></mat-text-column>
-        <mat-text-column
-          name="description"
-          headerText="Description"
-        ></mat-text-column>
-
-        <mat-text-column
-          name="totalTracks"
-          headerText="#Tracks"
-        ></mat-text-column>
-
-        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-        <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Tracks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let playlist of playlists; index as i">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>
+              <img [src]="playlist.image" class="me-2" style="width: 120px" />
+            </td>
+            <td>{{ playlist.name }}</td>
+            <td>{{ playlist.description }}</td>
+            <td>{{ playlist.totalTracks | number }}</td>
+          </tr>
+        </tbody>
       </table>
     </div>
-  </div>
-  <div class="col-4">
-    <div class="container">
-      <div class="row g-2">
-        <div class="p-3 border bg-light">
-          <p>Configuration</p>          
-          <ul>
-            <li>{{ configuration.hostname }}</li>
-            <li>{{ configuration.driver }}</li>
-            <li>{{ configuration.url }}</li>
-          </ul>
+
+    <div class="col-4">
+      <div class="container">
+        <div class="row g-2">
+          <div class="p-3 border bg-light">
+            <p>Configuration</p>
+            <ul>
+              <li>{{ configuration.hostname }}</li>
+              <li>{{ configuration.driver }}</li>
+              <li>{{ configuration.url }}</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
