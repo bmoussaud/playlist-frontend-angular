@@ -10,7 +10,6 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomerProfileModule } from './customer-profile/customer-profile.module';
 import { PlaylistsModule } from './playlists/playlists.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [HomeComponent, TopBarComponent],
@@ -23,7 +22,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PlaylistsModule,
     MatToolbarModule,
     MatButtonModule,
-    NgbModule,
   ],
   providers: [],
   bootstrap: [HomeComponent],
