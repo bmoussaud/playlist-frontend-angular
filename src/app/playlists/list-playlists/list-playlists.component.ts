@@ -16,7 +16,7 @@ export class ListPlaylistsComponent implements OnInit {
 
   dataSource: Observable<Playlist[]> = of([]);
 
-  configuration: Configuration | undefined;
+  configuration!: Configuration;
 
   couldNotRetrieve: Boolean = false;
 

@@ -40,12 +40,10 @@ interface PlaylistDTO {
   providedIn: 'root',
 })
 export class PlaylistsService {
-  private baseUrl = '/api/playlist';
-
   constructor(private http: HttpClient) {}
 
   getPlaylists(): Observable<Playlist[]> {
-    return this.http.get<PlaylistDTO[]>(this.baseUrl).pipe(
+    return this.http.get<PlaylistDTO[]>('/api/playlist').pipe(
       map((dtos) => {
         return dtos.map(
           (dto) =>
@@ -63,9 +61,9 @@ export class PlaylistsService {
   }
 
   getConfiguration(): Observable<Configuration> {
-    return this.http.get('/api/config').pipe(
+    return this.http.get<Configuration>('/api/config').pipe(
       map((result) => {
-        return new Configuration('x', 'u', 'u', 'p', 'd');
+        return result;
       })
     );
   }
