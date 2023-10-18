@@ -1,20 +1,47 @@
 <span *ngIf="couldNotRetrieve"> Could not retrieve playlists :( </span>
-<table mat-table [dataSource]="dataSource">
-  <ng-container matColumnDef="image">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Image</mat-header-cell>
-    <mat-cell *matCellDef="let element"
-      ><img style="height: 100px; width: 100px" [src]="element.image"
-    /></mat-cell>
-  </ng-container>
 
-  <mat-text-column name="name" headerText="Name"></mat-text-column>
-  <mat-text-column
-    name="description"
-    headerText="Description"
-  ></mat-text-column>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <table mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="image">
+          <mat-header-cell *matHeaderCellDef mat-sort-header
+            >Image</mat-header-cell
+          >
+          <mat-cell *matCellDef="let element"
+            ><img style="height: 100px; width: 100px" [src]="element.image"
+          /></mat-cell>
+        </ng-container>
 
-  <mat-text-column name="totalTracks" headerText="#Tracks"></mat-text-column>
+        <mat-text-column name="name" headerText="Name"></mat-text-column>
+        <mat-text-column
+          name="description"
+          headerText="Description"
+        ></mat-text-column>
 
-  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-  <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
-</table>
+        <mat-text-column
+          name="totalTracks"
+          headerText="#Tracks"
+        ></mat-text-column>
+
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
+      </table>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="container">
+      <div class="row g-2">
+        <div class="p-3 border bg-light">
+          <ngb-toast header="Configuration" [autohide]="false">
+            <ul>
+              <li>{{ configuration.hostname }}</li>
+              <li>{{ configuration.driver }}</li>
+              <li>{{ configuration.url }}</li>
+            </ul>
+          </ngb-toast>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

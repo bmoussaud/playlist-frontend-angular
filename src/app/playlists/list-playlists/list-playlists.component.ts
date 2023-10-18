@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Playlist, PlaylistsService } from '../playlists.service';
+import {
+  Configuration,
+  Playlist,
+  PlaylistsService,
+} from '../playlists.service';
 import { Observable, catchError, of, startWith } from 'rxjs';
 
 @Component({
@@ -8,9 +12,11 @@ import { Observable, catchError, of, startWith } from 'rxjs';
   styleUrls: ['./list-playlists.component.css'],
 })
 export class ListPlaylistsComponent implements OnInit {
-  columnsToDisplay = ['image',  'name', 'description', 'totalTracks'];
+  columnsToDisplay = ['image', 'name', 'description', 'totalTracks'];
 
   dataSource: Observable<Playlist[]> = of([]);
+
+  configuration: Configuration | undefined;
 
   couldNotRetrieve: Boolean = false;
 
@@ -25,5 +31,8 @@ export class ListPlaylistsComponent implements OnInit {
         return [];
       })
     );
+    this.playlistService.getConfiguration().subscribe((result) => {
+      this.configuration = result;
+    });
   }
 }

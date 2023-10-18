@@ -17,6 +17,16 @@ export class Playlist {
   }
 }
 
+export class Configuration {
+  constructor(
+    public url: string | null,
+    public username: string | null,
+    public hostname: string | null,
+    public password: string | null,
+    public driver: string | 0
+  ) {}
+}
+
 interface PlaylistDTO {
   index: string;
   name: string;
@@ -48,6 +58,14 @@ export class PlaylistsService {
               dto.duration
             )
         );
+      })
+    );
+  }
+
+  getConfiguration(): Observable<Configuration> {
+    return this.http.get('/api/config').pipe(
+      map((result) => {
+        return new Configuration('x', 'u', 'u', 'p', 'd');
       })
     );
   }
