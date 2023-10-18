@@ -1,0 +1,17 @@
+id: 471a74d3-a328-4961-af1f-b4b6588b3a65
+timestamp: 2023-10-18T07:32:53Z
+username: guest
+source: TAP-GUI
+accelerator:
+  name: angular-frontend
+  source:
+    image: akseutap6registry.azurecr.io/tanzu-application-platform/tap-packages@sha256:a93a90bb34a07ea0e6a88887f8372f848ba121451eeff64fa9b2beba44a4f9b0
+fragments:
+  - name: tap-workload
+    source:
+      image: akseutap6registry.azurecr.io/tanzu-application-platform/tap-packages@sha256:d9c7d8d322f0740666ba7c752a9174d1eb66274338c4f0e211edb1d448104c2a
+options:
+  artifactId: playlist-angular-frontend
+  backendService: playlist-springboot-service.musicstore-dev.svc.cluster.local
+  projectName: playlist-angular-frontend
+  useSingleSignOn: false

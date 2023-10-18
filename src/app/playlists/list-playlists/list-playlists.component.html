@@ -1,0 +1,20 @@
+<span *ngIf="couldNotRetrieve"> Could not retrieve playlists :( </span>
+<table mat-table [dataSource]="dataSource">
+  <ng-container matColumnDef="image">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Image</mat-header-cell>
+    <mat-cell *matCellDef="let element"
+      ><img style="height: 100px; width: 100px" [src]="element.image"
+    /></mat-cell>
+  </ng-container>
+
+  <mat-text-column name="name" headerText="Name"></mat-text-column>
+  <mat-text-column
+    name="description"
+    headerText="Description"
+  ></mat-text-column>
+
+  <mat-text-column name="totalTracks" headerText="#Tracks"></mat-text-column>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
+</table>
