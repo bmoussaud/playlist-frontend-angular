@@ -1,5 +1,5 @@
 import { fakeAsync, TestBed, tick } from '@angular/core/testing';
-import { MatTableModule } from "@angular/material/table";
+import { MatLegacyTableModule as MatTableModule } from "@angular/material/legacy-table";
 import { of, throwError } from "rxjs";
 import { ListCustomerProfilesComponent } from "./list-customer-profiles.component";
 import { CustomerProfile, CustomerProfileService } from "./customer-profile.service";
