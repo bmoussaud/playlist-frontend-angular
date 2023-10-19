@@ -4,15 +4,19 @@ metadata:
   name: playlist-angular-frontend
   labels:
     apps.tanzu.vmware.com/workload-type: web
-    app.kubernetes.io/part-of: playlist-angular-frontend
     apps.tanzu.vmware.com/has-tests: "true"
+    app.kubernetes.io/part-of: musicstore
+    app.kubernetes.io/name: playlist-angular-frontend
 spec:
   params:
     - name: annotations
       value:
-        autoscaling.knative.dev/minScale: "1"
-    - name: clusterBuilder
-      value: full
+        autoscaling.knative.dev/minScale: "1"    
+    - name: testing_pipeline_matching_labels
+      value:
+        apps.tanzu.vmware.com/pipeline: skip-test
+    - name: gitops_commit_message
+      value: playlist-angular-frontend dev supplychain@cluster.local
   build:
     env:
       - name: BP_NODE_RUN_SCRIPTS
