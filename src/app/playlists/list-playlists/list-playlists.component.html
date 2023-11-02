@@ -1,42 +1,51 @@
-<span *ngIf="couldNotRetrieve"> Could not retrieve playlists :( </span>
+<div class="container-fluid">
+  <div class="container-fluid bg-dark text-white border py-3 my-3">
+    <h1>Playlist Browser</h1>
+    <p>powered by Tanzu Application Platform</p>
+  </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-8">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Image</th>
-            <th scope="col">Name</th>
-            <th scope="col">Description</th>
-            <th scope="col">Tracks</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let playlist of playlists; index as i">
-            <th scope="row">{{ i + 1 }}</th>
-            <td>
-              <img [src]="playlist.image" class="me-2" style="width: 120px" />
-            </td>
-            <td>{{ playlist.name }}</td>
-            <td>{{ playlist.description }}</td>
-            <td>{{ playlist.totalTracks | number }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  
 
-    <div class="col-4">
-      <div class="container">
-        <div class="row g-2">
-          <div class="p-3 border bg-light">
-            <p>Configuration</p>
-            <ul>
-              <li>{{ configuration.hostname }}</li>
-              <li>{{ configuration.driver }}</li>
-              <li>{{ configuration.url }}</li>
-            </ul>
+  <div class="container-list">
+    <span *ngIf="couldNotRetrieve"> Could not retrieve playlists :( </span> 
+    <div class="row">
+      <div class="col-8">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Image</th>
+              <th scope="col">Name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Tracks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let playlist of playlists; index as i">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>
+                <img [src]="playlist.image" class="me-2" style="width: 120px" />
+              </td>
+              <td>{{ playlist.name }}</td>
+              <td>{{ playlist.description }}</td>
+              <td>{{ playlist.totalTracks | number }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col-4">
+        <div class="container">
+          <div class="row g-2">
+            <div class="p-3 border bg-light">
+              <p>Configuration</p>
+              <ul>
+                <li>{{ configuration.hostname }}</li>
+                <li>{{ configuration.driver }}</li>
+                <li>{{ configuration.url }}</li>
+                <li>{{ configuration.color }}</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

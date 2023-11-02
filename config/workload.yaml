@@ -29,6 +29,6 @@ spec:
         value: "DEBUG"
   source:
     git:
-      url: https://github.com/bmoussaud/playlist-frontend-angular.git
+      url: https://github.com/bmoussaud/playlist-frontend-angular.gitg
       ref:
         branch: main

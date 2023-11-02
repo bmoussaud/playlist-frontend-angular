@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "https://playlist-springboot-service.musicstore-dev.16x.tanzu.moussaud.org",
+    "target": "https://playlist-service-springboot.musicstore-dev.16x.tanzu.moussaud.org",
     "secure": true,
     "changeOrigin": true,
     "logLevel": "debug"

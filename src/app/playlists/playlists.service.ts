@@ -23,7 +23,8 @@ export class Configuration {
     public username: string | null,
     public hostname: string | null,
     public password: string | null,
-    public driver: string | 0
+    public driver: string | 0,
+    public color: string | 0
   ) {}
 }
 
