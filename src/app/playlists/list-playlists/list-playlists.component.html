@@ -1,52 +1,138 @@
-<div class="container-fluid">
-  <div class="container-fluid bg-dark text-white border py-3 my-3">
-    <h1>Playlist Browser</h1>
-    <p>powered by Tanzu Application Platform</p>
-  </div>
+<main>
+  <nav
+    class="navbar navbar-expand navbar-dark bg-dark"
+    aria-label="Second navbar example"
+  >
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img
+          src="/assets/brands/vmw-ico-tanzu-app-platform-rgb_16px.svg"
+          alt="Tanzu"
+          width="30"
+          height=""
+          class="d-inline-block align-text-top"
+        />
 
-  <div class="container-list">
-    <span *ngIf="couldNotRetrieve"> Could not retrieve playlists :( </span>
-    <div class="row">
-      <div class="col-8">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Image</th>
-              <th scope="col">Name</th>
-              <th scope="col">Description</th>
-              <th scope="col">Tracks</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let playlist of playlists; index as i">
-              <th scope="row">{{ i + 1 }}</th>
-              <td>
-                <img [src]="playlist.image" class="me-2" style="width: 120px" />
-              </td>
-              <td>{{ playlist.name }}</td>
-              <td>{{ playlist.description }}</td>
-              <td>{{ playlist.totalTracks | number }}</td>
-            </tr>
-          </tbody>
-        </table>
+        Playlist Browser
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarsExample02"
+        aria-controls="navbarsExample02"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#"
+              >powered by Tanzu Application Platform</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              href="https://tanzu.vmware.com/application-platform"
+              >Docs</a
+            >
+          </li>
+        </ul>
+        <form role="search">
+          <input
+            class="form-control"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+        </form>
       </div>
+    </div>
+  </nav>
 
-      <div class="col-4">
-        <div class="container">
-          <div class="row g-2">
-            <div class="p-3 border  {{ configuration.color }}">
-              <p>Configuration</p>
+  <div class="album py-5 bg-body-tertiary">
+    <div class="container-fluid">
+      <span *ngIf="couldNotRetrieve"> Could not retrieve playlists :( </span>
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+        <!-- /config-->
+        <div class="col">
+          <div class="card shadow-sm">
+            <img
+              class="bd-placeholder-img card-img-top"
+              src="/assets/brands/crossplane.png"
+              alt="crossplane"
+            />
+            <div class="card-body">
+              <h5 class="card-title">crossplane</h5>
               <ul>
                 <li>{{ configuration.hostname }}</li>
                 <li>{{ configuration.driver }}</li>
                 <li>{{ configuration.url }}</li>
-                <li>{{ configuration.color }}</li>
               </ul>
             </div>
           </div>
         </div>
+        <!-- /config-->
+
+        <!-- loop-->
+        <div class="col" *ngFor="let playlist of playlists; index as i">
+          <div class="card shadow-sm">
+            <img
+              class="card-img-top"
+              [src]="playlist.image"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h5 class="card-title">{{ playlist.name }}</h5>
+              <p class="card-text">{{ playlist.description }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary"
+                  >
+                    Play
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-outline-secondary"
+                  >
+                    Edit
+                  </button>
+                </div>
+                <small class="text-body-secondary"
+                  >{{ playlist.totalTracks | number }} track(s)</small
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /loop-->
       </div>
     </div>
   </div>
-</div>
+</main>
+
+<footer class="text-body-secondary py-5">
+  <div class="container">
+    <p class="float-end mb-1">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="mb-1">
+      Made by Benoit Moussaud Senior Solution Engineer at
+      <a href="https://tanzu.vmware.com">VMware Tanzu</a>
+    </p>
+    <p class="mb-0">
+      New to Tanzu Application Platform? <a href="/">Visit the homepage</a> or
+      read our
+      <a href="https://tanzu.vmware.com/application-platform"
+        >getting started guide</a
+      >.
+    </p>
+  </div>
+</footer>
