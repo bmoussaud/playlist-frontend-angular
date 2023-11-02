@@ -2,8 +2,9 @@ table {
   width: 100%;
 }
 
-div bg-helm {
-  background-color: rgb(#EC7700);
+div .green {
+  background-color: #78BE20;
+  color: white;
 }
 
 div bg-operator {
@@ -11,5 +12,5 @@ div bg-operator {
 }
 
 div bg-crossplane {
-  background-color: rgb(#78BE20);
+  background-color: rgb(#EC7700);
 }
