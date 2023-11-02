@@ -1,4 +1,15 @@
 table {
-    width: 100%;
-  }
-  
+  width: 100%;
+}
+
+div bg-helm {
+  background-color: rgb(#EC7700);
+}
+
+div bg-operator {
+  background-color: rgb(#0091DA);
+}
+
+div bg-crossplane {
+  background-color: rgb(#78BE20);
+}

@@ -4,10 +4,8 @@
     <p>powered by Tanzu Application Platform</p>
   </div>
 
-  
-
   <div class="container-list">
-    <span *ngIf="couldNotRetrieve"> Could not retrieve playlists :( </span> 
+    <span *ngIf="couldNotRetrieve"> Could not retrieve playlists :( </span>
     <div class="row">
       <div class="col-8">
         <table class="table table-striped">
@@ -37,7 +35,7 @@
       <div class="col-4">
         <div class="container">
           <div class="row g-2">
-            <div class="p-3 border bg-light">
+            <div class="p-3 border bg-primary text-white">
               <p>Configuration</p>
               <ul>
                 <li>{{ configuration.hostname }}</li>
