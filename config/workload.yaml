@@ -1,28 +1,32 @@
 apiVersion: carto.run/v1alpha1
 kind: Workload
 metadata:
-  name: playlist-angular-frontend
+  name: playlist-frontend-angular
   labels:
     apps.tanzu.vmware.com/workload-type: web
     apps.tanzu.vmware.com/has-tests: "true"
     app.kubernetes.io/part-of: musicstore
-    app.kubernetes.io/name: playlist-angular-frontend
+    app.kubernetes.io/name: playlist-frontend-angular
 spec:
   params:
     - name: annotations
       value:
-        autoscaling.knative.dev/minScale: "1"    
+        autoscaling.knative.dev/minScale: "1"
     - name: testing_pipeline_matching_labels
       value:
         apps.tanzu.vmware.com/pipeline: skip-test
     - name: gitops_commit_message
-      value: playlist-angular-frontend dev supplychain@cluster.local
+      value: playlist-frontend-angular dev supplychain@cluster.local
   build:
     env:
       - name: BP_NODE_RUN_SCRIPTS
         value: "build"
       - name: BP_WEB_SERVER_ROOT
         value: "dist"
+      - name: BP_NODE_VERSION
+        value: "v18.16.0"
+      - name: BP_LOG_LEVEL
+        value: "DEBUG"
   source:
     git:
       url: <https URL for your generated project's Git repository>
