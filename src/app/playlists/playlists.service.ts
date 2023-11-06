@@ -24,7 +24,8 @@ export class Configuration {
     public hostname: string | null,
     public password: string | null,
     public driver: string | 0,
-    public color: string | 0
+    public color: string | 0,
+    public provider: string | 0
   ) {}
 }
 

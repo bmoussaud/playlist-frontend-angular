@@ -11,10 +11,8 @@
           width="30"
           height=""
           class="d-inline-block align-text-top"
-        />
-
-        Playlist Browser
-      </a>
+        />Playlist Browser</a
+      >
       <button
         class="navbar-toggler"
         type="button"
@@ -64,11 +62,11 @@
           <div class="card shadow-sm">
             <img
               class="bd-placeholder-img card-img-top"
-              src="/assets/brands/crossplane.png"
-              alt="crossplane"
+              src="/assets/brands/{{ configuration.provider }}.png"
+              alt="{{ configuration.provider }}"
             />
             <div class="card-body">
-              <h5 class="card-title">crossplane</h5>
+              <h5 class="card-title">{{ configuration.provider }}</h5>
               <ul>
                 <li>{{ configuration.hostname }}</li>
                 <li>{{ configuration.driver }}</li>
